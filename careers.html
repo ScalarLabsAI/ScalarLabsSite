@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScalarLabs | Careers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="research.html">Research Programs</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="employee.html">Employee</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="content">
+    <div class="container">
+        <h2>Careers at ScalarLabs</h2>
+        <p>ScalarLabs is continuously building its team of world-class innovators. We welcome resumes in the following areas:</p>
+        <ul>
+            <li>Accounting</li><li>Bookkeeping</li><li>Human Resources</li><li>Chemistry</li>
+            <li>Computer Science</li><li>Physics</li><li>Electrical Engineering</li><li>Materials Engineering</li>
+        </ul>
+        <div class="lead-form">
+            <h3>Submit Your Resume</h3>
+            <form id="resume-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <select required><option value="">Select Position</option><option>Accounting</option>
+                <option>Bookkeeping</option><option>Human Resources</option><option>Chemistry</option>
+                <option>Computer Science</option><option>Physics</option><option>Electrical Engineering</option>
+                <option>Materials Engineering</option></select>
+                <input type="file" required>
+                <button type="submit">Submit Resume</button>
+            </form>
+            <div id="resume-success" class="success-message" style="display:none;">
+                Thank you for submitting your resume. If your qualifications align with our goals, we will contact you when our hiring window opens again.
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 ScalarLabs. Research-driven solutions for safety, behavior, and signal integrity.</p>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('resume-form');
+    if(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('resume-success').style.display = 'block';
+        });
+    }
+});
+</script>
+</body>
+</html>

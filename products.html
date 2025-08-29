@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScalarLabs | Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="research.html">Research Programs</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="employee.html">Employee</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+ <section class="hero">
+        <div class="container">
+            <h2>Our Products</h2>
+            <p>ScalarLabs develops applied technologies for safety and risk reduction. Our flagship product is <strong>Druber (SafeRide Utility)</strong>.</p>
+        </div>
+    </section>
+
+    <section id="druber" class="content">
+        <div class="container">
+            <h2>Druber (SafeRide Utility)</h2>
+
+            <h3>The Problem</h3>
+            <p>Every 39 minutes, someone in the U.S. dies in a DUI-related crash. Beyond the human toll, impaired driving costs insurers more than <strong>$2 billion annually</strong> in payouts.</p>
+
+            <h3>Our Solution</h3>
+            <p>Druber is a patent-pending, one-tap safe ride utility designed for direct integration into insurance carrier apps. It empowers members to pre-plan safe rides before drinking, reducing both fatalities and financial exposure.</p>
+
+            <h3>The Value</h3>
+            <ul>
+                <li><strong>Industry impact:</strong> A 10% reduction in impaired driving equals ≈ $200M in avoided payouts and nearly 1,400 lives saved annually.</li>
+                <li><strong>For drivers:</strong> Incentivized through deductible coverage, removing excuses not to use it.</li>
+                <li><strong>For insurers:</strong> Fewer payouts, clear PR wins, regulatory goodwill.</li>
+                <li><strong>For states:</strong> Access to federal 402(b) & 405 funds to cover licensing and deductible coverage.</li>
+            </ul>
+
+            <h3>Live Demo</h3>
+            <a href="#" class="demo-button" onclick="openModal()">Launch Demo</a>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>ScalarLabs Demo</h2>
+            <p>This is where your demo video or interactive MVP will appear.</p>
+            <div class="video-placeholder">
+                <p>Video Placeholder</p>
+            </div>
+            <!-- Lead Capture Form -->
+            <div class="lead-form">
+                <h3>Request Full Demo Access</h3>
+                <form>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="company" placeholder="Company" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 ScalarLabs. Research-driven solutions for safety, behavior, and signal integrity.</p>
+    </div>
+</footer>
+    <script>
+        function openModal() {
+            document.getElementById('demoModal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('demoModal').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            var modal = document.getElementById('demoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
