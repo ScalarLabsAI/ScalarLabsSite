@@ -1,53 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScalarLabs | Human-Centered Research</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header>
-    <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo">
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Our Products</a></li>
-            <li><a href="research.html">Research Programs</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="employee.html">Employee</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section class="hero">
-    <div class="container">
-        <h2>Human-Centered Research in Safety, Behavior, and Signal Integrity</h2>
-        <p>From impaired driving prevention to advanced verification and beyond.</p>
-        <div class="cta-buttons">
-            <a href="products.html" class="demo-button">Explore Our Products</a>
-            <a href="research.html" class="demo-button">View Research Programs</a>
-        </div>
-    </div>
-</section>
-
-
-<footer>
-    <div class="container">
-        <p>&copy; 2025 ScalarLabs. Research-driven solutions for safety, behavior, and signal integrity.</p>
-    </div>
-</footer>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('resume-form');
-    if(form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('resume-success').style.display = 'block';
-        });
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ScalarLabs — Human-Centered Research in Safety, Behavior, and Signal Integrity</title>
+  <meta name="description" content="ScalarLabs builds practical products and research programs that improve safety, behavior, and signal integrity." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%231a2a52'/%3E%3Cpath d='M14 34c8 4 16-8 24-4s16 8 20 6' stroke='%23fff' stroke-width='4' fill='none'/%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --ink:#0f172a;            /* deep navy */
+      --ink-2:#1e293b;          /* slate */
+      --brand:#315bbd;          /* primary */
+      --brand-2:#5d7fe0;        /* lighter */
+      --bg:#f5f7fb;             /* page */
+      --card:#ffffff;           /* surfaces */
+      --muted:#64748b;          /* text muted */
+      --ring: rgba(49,91,189,.25);
+      --radius:16px;
+      --shadow:0 10px 25px rgba(2,6,23,.08);
+      --max:1160px;
     }
-});
-</script>
-</body>
-</html>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:#0b1220;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Helvetica Neue",Arial,"Noto Sans",sans-serif;line-height:1.5}
+    a{color:var(--brand);text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    /* nav */
+    .nav{position:sticky;top:0;z-index:50;background:#0b1220;color:#fff}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-weight:800;letter-spacing:.2px;font-size:22px}
+    .menu{display:flex;gap:20px;flex-wrap:wrap}
+    .menu a{color:#cbd5e1;font-weight:600}
+    .menu a:hover{color:#fff}
+    /* hero */
+    .hero{position:relative;overflow:hidden;background:
+      radial-gradient(1200px 600px at 80% -100px, rgba(93,127,224,.20), transparent 60%),
+      radial-gradient(900px 500px at 10% -80px, rgba(49,91,189,.20), transparent 60%),
+      linear-gradient(180deg, #0b1220 0%, #0b1220 42%, var(--bg) 42%)}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 0 88px}
+    .kicker{color:#a5b4fc;font-weight:700;letter-spac
