@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.website) return; // honeypot: silently drop
 
     try {
-      const res = await fetch('https://scalarlabs-contact.clay-108.workers.dev/api/contact', {
+      const res = await fetch('https://scalarlabs-contact-v2.clay-108.workers.dev/api/contact', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify(data),
