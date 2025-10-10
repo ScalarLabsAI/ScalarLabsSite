@@ -1,69 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScalarLabs | Careers</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScalarLabs | Careers</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo" class="logo" />
-      <nav aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Our Products</a></li>
-          <li><a href="research.html">Research Programs</a></li>
-          <li><a href="careers.html" aria-current="page">Careers</a></li>
-          <li><a href="employee.html">Employee</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo" class="logo" />
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Our Products</a></li>
+        <li><a href="research.html">Research Programs</a></li>
+        <li><a href="careers.html" aria-current="page">Careers</a></li>
+        <li><a href="employee.html">Employee</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<section class="content">
+<main>
+  <section class="hero">
     <div class="container">
-        <h2>Careers at ScalarLabs</h2>
-        <p>ScalarLabs is continuously building its team of world-class innovators. We welcome resumes in the following areas:</p>
-        <ul>
-            <li>Accounting</li><li>Bookkeeping</li><li>Human Resources</li><li>Chemistry</li>
-            <li>Computer Science</li><li>Physics</li><li>Electrical Engineering</li><li>Materials Engineering</li>
-        </ul>
-        <div class="lead-form">
-            <h3>Submit Your Resume</h3>
-            <form id="resume-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <select required><option value="">Select Position</option><option>Accounting</option>
-                <option>Bookkeeping</option><option>Human Resources</option><option>Chemistry</option>
-                <option>Computer Science</option><option>Physics</option><option>Electrical Engineering</option>
-                <option>Materials Engineering</option></select>
-                <input type="file" required>
-                <button type="submit">Submit Resume</button>
-            </form>
-            <div id="resume-success" class="success-message" style="display:none;">
-                Thank you for submitting your resume. If your qualifications align with our goals, we will contact you when our hiring window opens again.
-            </div>
-        </div>
+      <h1>Careers at ScalarLabs</h1>
+      <p class="lede">
+        ScalarLabs is continuously building its team of world-class innovators.
+        Submit your resume to be considered for future opportunities.
+      </p>
     </div>
-</section>
+  </section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2024 ScalarLabs. Research-driven solutions for safety, behavior, and signal integrity.</p>
-    </div>
-  </footer>
+  <section class="container" style="padding:32px 0 64px 0">
+    <form id="resume-form" class="form" enctype="multipart/form-data" novalidate>
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        <span>Department</span>
+        <select name="department" required>
+          <option value="" disabled selected>Select Department</option>
+          <option>Accounting</option>
+          <option>Bookkeeping</option>
+          <option>Human Resources</option>
+          <option>Chemistry</option>
+          <option>Computer Science</option>
+          <option>Physics</option>
+          <option>Electrical Engineering</option>
+          <option>Materials Engineering</option>
+        </select>
+      </label>
+      <label>
+        <span>Resume (PDF or DOCX)</span>
+        <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+      </label>
+      <label>
+        <span>Message (optional)</span>
+        <textarea name="message" rows="4"></textarea>
+      </label>
+
+      <!-- Honeypot -->
+      <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
+
+      <button type="submit" class="btn btn-primary">Submit Resume</button>
+    </form>
+
+    <p id="resume-success" class="success" hidden>
+      Resume submitted successfully. We’ll be in touch.
+    </p>
+    <p id="resume-error" class="muted" hidden>
+      Send failed. Try again later.
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2024 ScalarLabs. Research-driven solutions for safety, behavior, and signal integrity.</p>
+  </div>
+</footer>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('resume-form');
-    if(form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('resume-success').style.display = 'block';
-        });
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('resume-form');
+  const ok = document.getElementById('resume-success');
+  const err = document.getElementById('resume-error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    ok.hidden = true; err.hidden = true;
+
+    const data = new FormData(form);
+    if (data.get('website')) return; // honeypot
+
+    try {
+      const res = await fetch('https://scalarlabs-contact-v2.clay-108.workers.dev/api/resume', {
+        method: 'POST',
+        body: data
+      });
+      if (res.ok) { form.reset(); ok.hidden = false; }
+      else { err.hidden = false; }
+    } catch {
+      err.hidden = false;
     }
+  });
 });
 </script>
 </body>
