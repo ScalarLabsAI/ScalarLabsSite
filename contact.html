@@ -5,35 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScalarLabs | Contact</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="/scalar-favicon-32.png">
 </head>
 <body>
-<header>
-    <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo">
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Our Products</a></li>
-            <li><a href="research.html">Research Programs</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="employee.html">Employee</a></li>
-            <li><a href="contact.html">Contact</a></li>
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo" class="logo" />
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="research.html">Research Programs</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="employee.html">Employee</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
-    </nav>
-</header>
+      </nav>
+    </div>
+  </header>
 
   <section class="hero contact-hero">
     <h1>Contact Us</h1>
     <p>We welcome inquiries from partners, researchers, and press.</p>
-    <p><strong>Email:</strong> research@scalarlabs.ai</p>
   </section>
 
-  <main>
-    <p></p>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 Scalar Labs. All Rights Reserved.</p>
+
+<main>
+    <p><section class="container" style="padding:0px 0 32px">
+  <h1>Contact</h1>
+
+<form id="contact-form" class="form" novalidate 
+      action="https://scalarlabs-contact.clay-108.workers.dev/api/contact" 
+      method="POST">
+    <label>
+      <span>Name</span>
+      <input type="text" name="name" required>
+    </label>
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required>
+    </label>
+    <label>
+      <span>Company (optional)</span>
+      <input type="text" name="company">
+    </label>
+    <label>
+      <span>Message</span>
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+
+    <!-- Honeypot (bots fill this; humans don't) -->
+    <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
+
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+
+  <p id="contact-success" class="success" hidden>Message sent. We’ll reply shortly.</p>
+  <p id="contact-error" class="muted" hidden>Send failed. Try again in a minute.</p>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const ok = document.getElementById('contact-success');
+  const err = document.getElementById('contact-error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    ok.hidden = true; err.hidden = true;
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (data.website) return; // honeypot: silently drop
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data),
+      });
+      if (res.ok) { form.reset(); ok.hidden = false; }
+      else { err.hidden = false; }
+    } catch {
+      err.hidden = false;
+    }
+  });
+});
+</script>
+</p>
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 ScalarLabs. Research-driven solutions for safety, behavior, and signal integrity.</p>
+    </div>
   </footer>
 </body>
 </html>
