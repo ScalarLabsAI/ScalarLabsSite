@@ -56,6 +56,7 @@
           <option>Physics</option>
           <option>Electrical Engineering</option>
           <option>Materials Engineering</option>
+          <option>Other</option>
         </select>
       </label>
       <label>
@@ -99,15 +100,35 @@ document.addEventListener('DOMContentLoaded', () => {
     ok.hidden = true; err.hidden = true;
 
     const data = new FormData(form);
-    if (data.get('website')) return; // honeypot
+    const file = data.get('resume');
+    const department = data.get('department');
+
+    // Validate department selection
+    if (!department) {
+      alert('Please select a department.');
+      return;
+    }
+
+    // Validate file attachment
+    if (!file || !file.name) {
+      alert('Please attach your file.');
+      return;
+    }
+
+    // Honeypot trap
+    if (data.get('website')) return;
 
     try {
       const res = await fetch('https://scalarlabs-contact-v2.clay-108.workers.dev/api/resume', {
         method: 'POST',
         body: data
       });
-      if (res.ok) { form.reset(); ok.hidden = false; }
-      else { err.hidden = false; }
+      if (res.ok) {
+        form.reset();
+        ok.hidden = false;
+      } else {
+        err.hidden = false;
+      }
     } catch {
       err.hidden = false;
     }
