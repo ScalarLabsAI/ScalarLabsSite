@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo" class="logo" />
-      <nav aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Our Products</a></li>
-          <li><a href="research.html">Research Programs</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="employee.html" aria-current="page">Employee</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="banner-bg"></div>
+
+  <div class="nav-bar">
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="employee.html" aria-current="page">Employee</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <section class="hero contact-hero">
     <h1>Employee Login</h1>
@@ -41,15 +42,15 @@
     </div>
   </footer>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('resume-form');
-    if(form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('resume-success').style.display = 'block';
-        });
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
+  if (!form) return;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Access Denied: Authorized personnel only.');
+  });
 });
 </script>
+
 </body>
 </html>

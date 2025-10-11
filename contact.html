@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo" class="logo" />
-      <nav aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Our Products</a></li>
-          <li><a href="research.html">Research Programs</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="employee.html">Employee</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="banner-bg"></div>
+
+  <div class="nav-bar">
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="employee.html">Employee</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <section class="hero contact-hero">
     <h1>Contact Us</h1>
@@ -34,17 +35,16 @@
     <p><section class="container" style="padding:0px 0 32px">
   <h1>Contact</h1>
 
-<form id="contact-form" class="form" novalidate 
+<form id="contact-form" class="form"
       action="https://scalarlabs-contact-v2.clay-108.workers.dev/api/contact" 
       method="POST">
     <label>
       <span>Name</span>
       <input type="text" name="name" required>
     </label>
-    <label>
-      <span>Email</span>
-      <input type="email" name="email" required>
-    </label>
+      <label for="email"><span>Email</span></label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      <label>
     <label>
       <span>Company (optional)</span>
       <input type="text" name="company">
@@ -72,17 +72,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!form.checkValidity()) {
+  form.reportValidity();
+  return;
+}
+
+// Extra strict email check
+const emailInput = form.querySelector('input[type="email"]');
+if (emailInput) {
+  const value = emailInput.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(value)) {
+    alert('Please enter a valid email address (e.g., name@example.com).');
+    emailInput.focus();
+    return;
+  }
+}
+
     ok.hidden = true; err.hidden = true;
 
     const data = Object.fromEntries(new FormData(form).entries());
     if (data.website) return; // honeypot: silently drop
 
     try {
-      const res = await fetch('https://scalarlabs-contact-v2.clay-108.workers.dev/api/contact', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify(data),
-});
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data),
+      });
       if (res.ok) { form.reset(); ok.hidden = false; }
       else { err.hidden = false; }
     } catch {

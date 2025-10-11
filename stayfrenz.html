@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo" class="logo" />
-      <nav aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Our Products</a></li>
-          <li><a href="research.html" aria-current="page">Research Programs</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="employee.html">Employee</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="banner-bg"></div>
+
+  <div class="nav-bar">
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="research.html" aria-current="page">Research</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="employee.html">Employee</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 <section class="hero contact-hero"><h1>StayFrenz – Ontologically Verified Social Network</h1><p>This research program is available by invitation only. Please log in with provided credentials to view details.</p><div class='login-form'><form><input type='text' placeholder='User ID' required><input type='password' placeholder='Password' required><button type='submit'>Login</button></form></div></section>
   <footer class="site-footer">
     <div class="container">
@@ -29,14 +30,13 @@
     </div>
   </footer>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('resume-form');
-    if(form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('resume-success').style.display = 'block';
-        });
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
+  if (!form) return;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Access Denied: Please contact us to gain access.');
+  });
 });
 </script>
 </body>

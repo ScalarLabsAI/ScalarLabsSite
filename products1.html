@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScalarLabs | Our Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="banner-bg"></div>
+
+  <div class="nav-bar">
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" aria-current="page">Products</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="employee.html">Employee</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container">
+      <h1>Our Products</h1>
+      <p class="lede">
+        ScalarLabs develops applied technologies for safety and risk reduction.
+        Our flagship product is Druber (SafeRide Utility).
+      </p>
+    </div>
+  </section>
+
+  <section class="container" style="padding:24px 0 64px 0">
+    <article>
+      <h2>Druber (SafeRide Utility)</h2>
+
+      <h3>The Problem</h3>
+      <p>
+        Every 39 minutes, someone in the U.S. dies in a DUI-related crash.
+        Beyond the human toll, impaired driving costs insurers more than
+        <strong>$30 billion annually</strong> in payouts.
+      </p>
+
+      <h3>Our Solution</h3>
+      <p>
+        Druber is a patent-pending, one-tap safe ride utility designed for direct integration into insurance carrier apps.
+        It empowers members to pre-plan a ride and finalize it when needed, reducing liability and financial exposure.
+      </p>
+
+      <h3>The Value</h3>
+      <ul>
+        <li><strong>Industry impact:</strong> A 10% reduction in impaired driving equals ≈ $3B in avoided payouts and nearly 1,400 lives saved annually.</li>
+        <li><strong>For insurers:</strong> Fewer payouts, reduced exposure to punitive damages, clear PR wins, regulatory goodwill.</li>
+        <li><strong>For states:</strong> Increased access to federal 402 & 405(d) funds.</li>
+      </ul>
+
+      <div class="cta-buttons">
+        <a class="btn btn-primary" id="open-demo" href="#demo">Request Demo</a>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2024 ScalarLabs. Research-driven solutions for safety, behavior, and signal integrity.</p>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div id="demo-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <h3>Request Druber (SafeRide) Demo</h3>
+
+    <div id="demo-video" class="video-placeholder"></div>
+
+    <form id="demo-form" class="form">
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" required>
+      </label>
+      <label for="email"><span>Email</span></label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      <label>
+      <label>
+        <span>Company</span>
+        <input type="text" name="company">
+      </label>
+
+      <!-- Hidden fields -->
+      <input type="hidden" name="message" value="Requesting Druber (SafeRide) demo video.">
+      <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
+
+      <button type="submit" class="btn btn-primary">Request</button>
+    </form>
+
+    <p id="demo-success" class="success" hidden>Thanks — we’ll contact you shortly.</p>
+    <p id="demo-error" class="muted" hidden>Send failed. Try again in a minute.</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('demo-modal');
+  const openBtn = document.getElementById('open-demo');
+  const closeBtn = modal ? modal.querySelector('.modal-close') : null;
+  const form = document.getElementById('demo-form');
+  const success = document.getElementById('demo-success');
+  const error = document.getElementById('demo-error');
+
+  // Modal open/close behavior
+  function openModal() {
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  openBtn && openBtn.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  modal && modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
+
+  // Email submission
+  if (form && success && error) {
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+     if (!form.checkValidity()) {
+  form.reportValidity();
+  return;
+}
+
+// Extra strict email check
+const emailInput = form.querySelector('input[type="email"]');
+if (emailInput) {
+  const value = emailInput.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(value)) {
+    alert('Please enter a valid email address (e.g., name@example.com).');
+    emailInput.focus();
+    return;
+  }
+}
+
+      success.hidden = true; error.hidden = true;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (data.website) return; // honeypot
+      data.message = "Requesting Druber (SafeRide) demo video.";
+
+      try {
+        const res = await fetch('https://scalarlabs-contact-v2.clay-108.workers.dev/api/contact', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          success.hidden = false;
+        } else {
+          error.hidden = false;
+        }
+      } catch {
+        error.hidden = false;
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>

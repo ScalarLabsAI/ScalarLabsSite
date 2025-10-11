@@ -8,13 +8,14 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="container header-inner">
-    <img src="scalarlabs_logo_white.png" alt="ScalarLabs Logo" class="logo" />
+  <div class="banner-bg"></div>
+
+  <div class="nav-bar">
     <nav aria-label="Primary">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="products.html" aria-current="page">Our Products</a></li>
-        <li><a href="research.html">Research Programs</a></li>
+        <li><a href="products.html" aria-current="page">Products</a></li>
+        <li><a href="research.html">Research</a></li>
         <li><a href="careers.html">Careers</a></li>
         <li><a href="employee.html">Employee</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -79,15 +80,13 @@
 
     <div id="demo-video" class="video-placeholder"></div>
 
-    <form id="demo-form" class="form" novalidate>
+    <form id="demo-form" class="form">
       <label>
         <span>Name</span>
         <input type="text" name="name" required>
       </label>
-      <label>
-        <span>Email</span>
-        <input type="email" name="email" required>
-      </label>
+      <label for="email"><span>Email</span></label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
       <label>
         <span>Company</span>
         <input type="text" name="company">
@@ -114,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const success = document.getElementById('demo-success');
   const error = document.getElementById('demo-error');
 
-  // Modal open/close behavior
   function openModal() {
     if (!modal) return;
     modal.classList.add('open');
@@ -128,19 +126,39 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.overflow = '';
   }
 
-  openBtn && openBtn.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+  openBtn && openBtn.addEventListener('click', e => { e.preventDefault(); openModal(); });
   closeBtn && closeBtn.addEventListener('click', closeModal);
-  modal && modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
+  modal && modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
 
   // Email submission
   if (form && success && error) {
     form.addEventListener('submit', async function(e){
       e.preventDefault();
-      success.hidden = true; error.hidden = true;
+
+      // Built-in validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Strict email validation
+      const emailInput = form.querySelector('input[type="email"]');
+      if (emailInput) {
+        const value = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(value)) {
+          alert('Please enter a valid email address (e.g., name@example.com).');
+          emailInput.focus();
+          return;
+        }
+      }
+
+      success.hidden = true;
+      error.hidden = true;
 
       const data = Object.fromEntries(new FormData(form).entries());
-      if (data.website) return; // honeypot
+      if (data.website) return;
       data.message = "Requesting Druber (SafeRide) demo video.";
 
       try {
@@ -153,6 +171,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (res.ok) {
           form.style.display = 'none';
           success.hidden = false;
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          setTimeout(() => {
+            success.hidden = true;
+            form.reset();
+            form.style.display = 'block';
+            closeModal();
+          }, 5000);
         } else {
           error.hidden = false;
         }
