@@ -1,11 +1,15 @@
+/* =========================================
+   SCALARLABS THEME (Banner-Aligned Update)
+   ========================================= */
+
 /* Reset & Base */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #C8D9E3; /* softened background */
+  color: #1E2E33;
   line-height: 1.5;
   min-height: 100vh;
   display: flex;
@@ -24,7 +28,7 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  background: #0a0f2c;
+  background: linear-gradient(90deg, #3B6A87 0%, #5C8DAA 100%);
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   z-index: 1000;
 }
@@ -43,7 +47,8 @@ body {
   padding: 0;
 }
 .nav-list a {
-  color: #fff;
+  color: #EAF5FA;
+  text-shadow: 0 0 4px rgba(255,255,255,0.25);
   text-decoration: none;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
@@ -51,33 +56,33 @@ body {
 }
 .nav-list a:hover,
 .nav-list a:focus-visible {
-  color: #ffd66b;
+  color: #FFE291;
   outline: none;
   background: rgba(255,255,255,0.06);
 }
 .nav-list a[aria-current="page"] {
-  border-bottom: 2px solid #ffd66b;
+  border-bottom: 2px solid #FFE291;
 }
 
 /* Hero */
 .hero {
-  background: #e6f0ff;
+  background: #B8CCD8;
   padding: 32px 0;
   text-align: center;
 }
 .hero h1 {
   margin: 0 0 10px 0;
   font-size: clamp(1.75rem, 2.2vw + 1rem, 2.75rem);
-  color: #0a0f2c;
+  color: #1E2E33;
 }
 .lede {
   margin: 0 auto 24px auto;
   max-width: 800px;
   font-size: 1.1rem;
-  color: #1f2a44;
+  color: #273D46;
 }
 
-/* CTA Buttons — normalized behavior */
+/* CTA Buttons */
 .cta-buttons {
   display: inline-flex;
   gap: 12px;
@@ -97,49 +102,49 @@ body {
 }
 .btn:focus-visible { outline: 3px solid #99c2ff; outline-offset: 2px; }
 
-/* Primary: blue background, white text */
+/* Primary: ocean-blue tone */
 .btn-primary {
-  background: #0057b7;
+  background: #3B6A87;
   color: #fff;
-  border-color: #0050a8;
+  border-color: #325A74;
 }
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: #003d80;
+  background: #2F5A72;
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0, 87, 183, 0.25);
+  box-shadow: 0 6px 18px rgba(59,106,135,0.25);
 }
 
-/* Secondary: light background, dark text — ensure legibility */
+/* Secondary: light background */
 .btn-secondary {
-  background: #ffffff;
-  color: #0a0f2c;
-  border-color: #cdd8ea;
+  background: #FFFFFF;
+  color: #1E2E33;
+  border-color: #B8CCD8;
 }
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  background: #f1f6ff;
-  color: #0a0f2c;
+  background: #F1F6F9;
+  color: #1E2E33;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(10, 15, 44, 0.12);
+  box-shadow: 0 6px 18px rgba(30,46,51,0.12);
 }
 
-/* Main content scroll area */
+/* Main content */
 main {
   flex: 1 0 auto;
-  padding-bottom: 72px; /* equal to footer height so content never hides behind it */
+  padding-bottom: 72px;
 }
 
-/* Footer pinned to bottom */
+/* Footer */
 .site-footer {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 999;
-  background: #0a0f2c;
-  color: #fff;
+  background: linear-gradient(90deg, #3B6A87 0%, #5C8DAA 100%);
+  color: #FFFFFF;
   text-align: center;
   padding: 16px;
   box-shadow: 0 -2px 8px rgba(0,0,0,.15);
@@ -157,8 +162,8 @@ main {
 }
 .modal.open { display: flex; }
 .modal-dialog {
-  background: #fff;
-  color: #0a0f2c;
+  background: #FFFFFF;
+  color: #1E2E33;
   width: 100%;
   max-width: 520px;
   border-radius: 8px;
@@ -177,34 +182,39 @@ main {
   cursor: pointer;
 }
 .form label { display: block; margin-bottom: 12px; }
-.form input, .form textarea { width:100%; border:1px solid #cdd8ea; border-radius:6px; padding:10px 12px; }
-.form label span { display: block; font-size: 0.9rem; margin-bottom: 6px; color: #1f2a44; }
+.form input, .form textarea { width:100%; border:1px solid #B8CCD8; border-radius:6px; padding:10px 12px; }
+.form label span { display: block; font-size: 0.9rem; margin-bottom: 6px; color: #273D46; }
 .form input, .form textarea {
   width: 100%;
-  border: 1px solid #cdd8ea;
+  border: 1px solid #B8CCD8;
   border-radius: 6px;
   padding: 10px 12px;
   font-size: 1rem;
 }
 .form button[type="submit"] { margin-top: 8px; }
-.muted { color: #5b6b87; margin: 0 0 12px 0; }
-.success { background: #e8f7ed; color: #125b2a; border: 1px solid #b6e2c3; border-radius: 6px; padding: 10px 12px; }
+.muted { color: #4F6572; margin: 0 0 12px 0; }
+.success {
+  background: #E8F7ED;
+  color: #125B2A;
+  border: 1px solid #B6E2C3;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
 
 /* Video placeholder / demo window */
 .video-placeholder {
   width: 100%;
   height: 180px;
-  background: #e8ebf2 url("druber_logo.png") center center no-repeat;
+  background: #E8EBF2 url("druber_logo.png") center center no-repeat;
   background-size: contain;
-  border: 1px solid #cdd8ea;
+  border: 1px solid #B8CCD8;
   border-radius: 6px;
   margin-bottom: 16px;
 }
 
-
-
-/* Utilities */
+/* Utilities / Mobile */
 @media (max-width: 640px) {
   .logo { height: 52px; }
-  main { padding-bottom: 88px; } /* extra space for taller mobile footer */
+  main { padding-bottom: 88px; }
+  .nav-list { gap: 0.6rem; }
 }
