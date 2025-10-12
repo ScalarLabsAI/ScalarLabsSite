@@ -39,7 +39,7 @@ body {
 .banner-bg {
   position: absolute;
   inset: 0;
-  background: url("Banner.png") left center / auto 100% no-repeat;
+  background: url("banner.png") left center / auto 100% no-repeat;
   background-color: #AEC8CE; /* fallback for right-hand fill */
   z-index: 0;
 }
