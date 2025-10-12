@@ -50,7 +50,7 @@ body {
   right: 4%;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(123,160,172,0.15);
+  background: rgba(123,160,172,0.75);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,0.25);
