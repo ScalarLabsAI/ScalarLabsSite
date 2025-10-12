@@ -39,9 +39,11 @@ body {
 .banner-bg {
   position: absolute;
   inset: 0;
-  background: url("banner.png") left center / auto 100% no-repeat;
+  background: url("Banner.png") center center / auto 100% no-repeat;
   background-color: #AEC8CE; /* fallback for right-hand fill */
-  z-index: 0;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated; /* fallback for different engines */
 }
 
 /* Glass navigation bar */
