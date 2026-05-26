@@ -46,7 +46,7 @@ body {
   background-image: url("banner.png");
   background-repeat: no-repeat;
   background-position: left center;
-  background-size: auto 120px;
+  background-size: auto 100%;
   background-color: #AEC8CE;
 
   image-rendering: -webkit-optimize-contrast;
