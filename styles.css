@@ -40,14 +40,19 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 120px;
-
-  background-image: url("banner.png");
-  background-repeat: no-repeat;
-  background-position: left center;
+  background: url("banner.png") left center no-repeat;
   background-size: auto 100%;
   background-color: #AEC8CE;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  transform: translateZ(0) scale(1.0001);
+  will-change: transform;
+  backface-visibility: hidden;
+  z-index: 0;
+}
 
   image-rendering: -webkit-optimize-contrast;
   transform: translateZ(0) scale(1.0001);
