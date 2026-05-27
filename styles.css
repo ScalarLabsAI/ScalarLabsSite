@@ -43,7 +43,7 @@ body {
   left: 0;                                /* keep logo always visible */
   width: 100vw;                           /* fill viewport width */
   height: 120px;
-  background: url("Banner.png") left center no-repeat;
+  background: url("banner.png") left center no-repeat;
   background-size: auto 100%;             /* anchored left; runs off right edge */
   background-color: #AEC8CE;              /* fills right-hand side */
   image-rendering: -webkit-optimize-contrast;
