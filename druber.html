@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScalarLabs | Druber</title>
+  <meta name="description" content="Druber SafeRide utility for insurers, employers, venues, and public safety partners.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="banner-bg"></div>
+<img src="scalar-atom.png" alt="" class="animated-atom" aria-hidden="true">
+  <div class="nav-bar">
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" aria-current="page">Products</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="employee.html">Employee</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="page-hero">
+    <div class="container product-detail-hero">
+      <div>
+        <p class="eyebrow">SafeRide Utility</p>
+        <h1>Druber</h1>
+        <p class="subtitle">One-Tap Safe Ride Activation</p>
+        <p class="product-tagline">A patent-pending utility designed to reduce impaired-driving risk before the moment of decision.</p>
+        <div class="cta-buttons">
+          <a class="btn btn-primary" href="#request-demo" data-demo-product="druber">Request Demo</a>
+          <a class="btn btn-dark" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-image"><img src="druber_logo.png" alt="Druber logo"></div>
+    </div>
+  </section>
+
+  <section class="container section-pad">
+    <div class="feature-row">
+      <article class="card feature-card">
+        <h2>The Problem</h2>
+        <p>Alcohol-impaired driving remains a major public safety and financial burden. Preventable crashes create human loss, insurance exposure, legal risk, property damage, and emergency response costs.</p>
+      </article>
+      <article class="card feature-card">
+        <h2>Our Solution</h2>
+        <p>Druber gives users a low-friction way to pre-plan transportation before impairment occurs and activate a safe ride when needed.</p>
+      </article>
+      <article class="card feature-card">
+        <h2>The Value</h2>
+        <ul>
+          <li><strong>For insurers:</strong> reduced claim and liability exposure.</li>
+          <li><strong>For venues:</strong> practical risk reduction.</li>
+          <li><strong>For states:</strong> alignment with impaired-driving prevention programs.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="container section-pad">
+    <div class="enterprise-band">
+      <div>
+        <h2>Partner Deployment</h2>
+        <p>Druber is designed for insurers, transportation providers, hospitality groups, employers, events, states, and municipalities.</p>
+      </div>
+      <a class="btn btn-secondary" href="#request-demo" data-demo-product="druber">Request Demo</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="footer-mark">⚛</div>
+      <p>&copy; 2024 ScalarLabs<br>Research-driven solutions for safety, behavior, and signal integrity.</p>
+    </div>
+
+    <div class="footer-block">
+      <strong>Security Focused</strong>
+      <span>Privacy by Design</span>
+    </div>
+
+    <div class="footer-block">
+      <strong>Low-Latency Systems</strong>
+      <span>Real-World Impact</span>
+    </div>
+
+    <div class="footer-block">
+      <strong>Android Native</strong>
+      <span>Built for Scale</span>
+    </div>
+
+    <div class="footer-block footer-highlight">
+      <strong>Patent-Pending Technologies</strong>
+      <span>All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Request Demo Modal -->
+<div id="demo-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="demo-title">
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" type="button" aria-label="Close modal">&times;</button>
+    <h3 id="demo-title">Request Demo</h3>
+
+    <div id="demo-visual" class="video-placeholder" aria-hidden="true"></div>
+
+    <form id="demo-form" class="form">
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" placeholder="your@email.com" required>
+      </label>
+      <label>
+        <span>Company</span>
+        <input type="text" name="company">
+      </label>
+
+      <input type="hidden" id="demo-message" name="message" value="">
+      <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px">
+
+      <button type="submit" class="btn btn-primary">Request</button>
+    </form>
+
+    <p id="demo-success" class="success" hidden>Thanks — we’ll contact you shortly.</p>
+    <p id="demo-error" class="muted" hidden>Send failed. Try again in a minute.</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('demo-modal');
+  const closeBtn = modal ? modal.querySelector('.modal-close') : null;
+  const form = document.getElementById('demo-form');
+  const success = document.getElementById('demo-success');
+  const error = document.getElementById('demo-error');
+  const demoTitle = document.getElementById('demo-title');
+  const demoVisual = document.getElementById('demo-visual');
+  const demoMessage = document.getElementById('demo-message');
+
+  function openModal(product) {
+    if (!modal) return;
+
+    if (form) {
+      form.reset();
+      form.style.display = 'block';
+    }
+
+    if (success) success.hidden = true;
+    if (error) error.hidden = true;
+
+    if (product === 'druber') {
+      if (demoTitle) demoTitle.textContent = 'Request Druber Demo';
+      if (demoVisual) {
+        demoVisual.style.backgroundImage = 'url("druber_logo.png")';
+        demoVisual.style.backgroundColor = '#e8ebf2';
+      }
+      if (demoMessage) demoMessage.value = 'Requesting Druber demo.';
+    } else {
+      if (demoTitle) demoTitle.textContent = 'Request Vocari Demo';
+      if (demoVisual) {
+        demoVisual.style.backgroundImage = 'url("vocari_header.png")';
+        demoVisual.style.backgroundColor = '#000';
+      }
+      if (demoMessage) demoMessage.value = 'Requesting Vocari demo.';
+    }
+
+    modal.classList.add('open');
+    modal.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-demo-product]').forEach(button => {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+      openModal(button.getAttribute('data-demo-product'));
+    });
+  });
+
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  modal && modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
+
+  if (form && success && error) {
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (data.website) return;
+      if (!data.message) data.message = 'Requesting product demo.';
+
+      try {
+        const res = await fetch('https://scalarlabs-contact-v2.clay-108.workers.dev/api/contact', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          success.hidden = false;
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            success.hidden = true;
+            form.reset();
+            form.style.display = 'block';
+            closeModal();
+          }, 5000);
+        } else {
+          error.hidden = false;
+        }
+      } catch {
+        error.hidden = false;
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>
