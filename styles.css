@@ -865,7 +865,12 @@ main::after {
 }
 
 .site-footer .container {
-  max-width: 1180px;
+  width: 92%;
+  max-width: 1500px;
+}
+
+.site-footer {
+  padding: 22px 0;
 }
 
 .site-footer p {
@@ -877,8 +882,8 @@ main::after {
 /* Footer block styles for future upgraded HTML */
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
-  gap: 26px;
+  grid-template-columns: 2fr 1.25fr 1.25fr 1.25fr 1.45fr;
+  gap: clamp(32px, 4vw, 72px);
   align-items: center;
   text-align: left;
 }
@@ -887,6 +892,7 @@ main::after {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 340px;
 }
 
 .footer-mark {
@@ -1064,6 +1070,85 @@ main::after {
     top: 20px;
     width: 78px;
     height: 78px;
+  }
+}
+
+
+/* =========================================
+   MOBILE VOCARI + NAV REFINEMENT
+   Mobile-only overrides. Desktop remains unchanged.
+   ========================================= */
+
+@media (max-width: 760px) {
+  .vocari-hero {
+    padding: 28px 0;
+  }
+
+  .vocari-hero-panel {
+    width: 92%;
+    margin: 0 auto;
+    padding: 28px 22px;
+    border-radius: 18px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .vocari-hero-logo {
+    max-width: 100%;
+    margin: 0 auto 22px;
+  }
+
+  .vocari-hero-copy h2 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .vocari-hero-copy .product-tagline {
+    font-size: 1.15rem;
+    line-height: 1.45;
+  }
+
+  .vocari-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .vocari-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .vocari-hero-points {
+    margin-top: 10px;
+  }
+
+  .site-header {
+    height: 190px;
+  }
+
+  body::before {
+    height: 190px;
+  }
+
+  .nav-bar {
+    top: 132px;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    background: rgba(174, 200, 206, 0.92);
+  }
+
+  .nav-list {
+    overflow-x: auto;
+    gap: 1.25rem;
+    padding-bottom: 6px;
+  }
+
+  .nav-list a {
+    white-space: nowrap;
+    font-size: 1rem;
   }
 }
 
