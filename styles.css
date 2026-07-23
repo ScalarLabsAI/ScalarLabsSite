@@ -1082,19 +1082,51 @@ main::after {
 
 .home-tech-label {
   position: absolute;
-  max-width: 170px;
-  color: rgba(240,249,255,.94);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 225px;
+  color: rgba(240,249,255,.96);
   font-size: .78rem;
   font-weight: 900;
   letter-spacing: .055em;
-  line-height: 1.25;
+  line-height: 1.2;
   text-transform: uppercase;
-  padding: 10px 12px;
-  border: 1px solid rgba(105,193,249,.24);
+  padding: 8px 14px 8px 9px;
+  border: 1px solid rgba(105,193,249,.30);
   border-radius: 999px;
-  background: rgba(2,18,34,.58);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.16);
+  background: rgba(2,18,34,.72);
+  backdrop-filter: blur(7px);
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.home-tech-label-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 50%;
+  color: #8ad3ff;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(110,196,255,.24), transparent 48%),
+    rgba(18,62,103,.72);
+  border: 1px solid rgba(124,203,255,.24);
+  box-shadow:
+    inset 0 0 14px rgba(61,154,224,.12),
+    0 0 16px rgba(55,151,225,.08);
+}
+
+.home-tech-label-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .home-tech-label-signal { left: 2%; top: 18%; }
@@ -1629,8 +1661,20 @@ main::after {
   }
 
   .home-tech-label {
+    gap: 7px;
     font-size: .62rem;
-    padding: 7px 9px;
+    padding: 6px 9px 6px 7px;
+  }
+
+  .home-tech-label-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .home-tech-label-icon svg {
+    width: 16px;
+    height: 16px;
   }
 
   .home-tech-label-signal { left: 0; top: 16%; }
