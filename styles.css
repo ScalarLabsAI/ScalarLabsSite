@@ -52,7 +52,7 @@ body {
   height: 120px;
   overflow: hidden;
   z-index: 1000;
-  background-color: #AEC8CE;
+  background-color: #B7CAD2;
   box-shadow: 0 2px 10px rgba(7, 27, 52, 0.22);
 }
 
@@ -61,7 +61,7 @@ body {
   inset: 0;
   width: 100vw;
   height: 120px;
-  background-color: #AEC8CE;
+  background-color: #B7CAD2;
   background-image: url("banner.png");
   background-position: left center;
   background-repeat: no-repeat;
