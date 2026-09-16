@@ -302,8 +302,21 @@ main::after {
   max-width: 680px;
 }
 
-.vocari-cta {
-  justify-content: flex-start;
+.cta-buttons.vocari-cta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 12px;
+  width: 100%;
+  justify-content: start;
+}
+
+.vocari-cta > .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  text-align: center;
 }
 
 .vocari-hero-points {
@@ -2166,6 +2179,10 @@ main::after {
 }
 
 @media (max-width: 520px) {
+  .cta-buttons.vocari-cta {
+    grid-template-columns: 1fr;
+  }
+
   .site-header {
     height: 178px;
   }
