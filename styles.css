@@ -388,6 +388,13 @@ main::after {
     linear-gradient(145deg, #061d33, #0d4575);
 }
 
+.vocari-earbuds-visual .earbuds-illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .earbud-shape {
   position: absolute;
   top: 27px;
