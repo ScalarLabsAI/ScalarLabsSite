@@ -1,0 +1,30 @@
+/* Keep the existing homepage image footprint; display unaltered app captures. */
+.home-phones-image.home-vocari-screens {
+  aspect-ratio: 1672 / 941;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
+.home-vocari-screens > img {
+  display: block;
+  width: 22%;
+  height: auto;
+  object-fit: contain;
+  border: 2px solid rgba(172, 195, 225, .38);
+  border-radius: 14px;
+  padding: 3px;
+  background: #06080c;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .28);
+}
+
+.home-vocari-screens > .home-vocari-entry {
+  width: 24%;
+}
+
+/* Match the old walkthrough capture ratio without stretching or cropping. */
+.phone-frame > .vocari-current-screen {
+  aspect-ratio: 1242 / 2688;
+  object-fit: contain;
+}
