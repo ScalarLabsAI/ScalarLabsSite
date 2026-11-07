@@ -319,6 +319,10 @@ main::after {
   text-align: center;
 }
 
+.vocari-cta > .vocari-contact-action {
+  grid-column: 1 / -1;
+}
+
 .vocari-hero-points {
   display: grid;
   gap: 16px;
