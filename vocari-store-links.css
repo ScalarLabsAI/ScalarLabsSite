@@ -1,0 +1,38 @@
+.cta-buttons > .vocari-store-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.vocari-store-link img {
+  display: block;
+  max-width: 100%;
+  height: 40px;
+  object-fit: contain;
+}
+
+.vocari-store-link.btn-green {
+  background: #124522;
+  border-color: #22733e;
+}
+
+.vocari-store-link.btn-green:hover {
+  background: #18582d;
+}
+
+.home-flagship-actions > .btn-primary {
+  align-content: center;
+}
+
+.vocari-store-credits {
+  padding-top: 12px;
+  font-size: 0.78rem;
+}
+
+.vocari-store-credits a {
+  color: inherit;
+}
