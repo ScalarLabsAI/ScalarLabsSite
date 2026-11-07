@@ -1,0 +1,101 @@
+.share-vocari-panel {
+  max-width: 920px;
+  margin-top: clamp(20px, 4vw, 56px);
+  padding: clamp(24px, 5vw, 60px);
+  text-align: center;
+  background: #f6faff;
+  border: 1px solid #bacfdf;
+  border-radius: 24px;
+  box-shadow: 0 16px 42px rgba(7, 27, 52, 0.12);
+}
+
+.share-vocari-wordmark {
+  display: block;
+  width: min(100%, 200px);
+  height: auto;
+  margin: 0 auto 18px;
+}
+
+.share-vocari-panel h1 {
+  color: #071b34;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.share-vocari-description {
+  max-width: 53ch;
+  margin: 14px auto 28px;
+  font-size: 1.125rem;
+}
+
+.share-vocari-platforms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.share-vocari-platform {
+  min-width: 0;
+  padding: 22px 12px 14px;
+  color: #071b34;
+  background: #fff;
+  border: 1px solid #c9d9e6;
+  border-radius: 16px;
+  scroll-margin-top: 136px;
+}
+
+.share-vocari-platform h2 {
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+}
+
+.share-vocari-platform p {
+  margin-top: 4px;
+  color: #3b5263;
+}
+
+.share-vocari-store {
+  display: grid;
+  min-height: 96px;
+  place-items: center;
+}
+
+.share-vocari-store a {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.share-vocari-store a:focus-visible {
+  outline: 3px solid #235f9c;
+  outline-offset: 4px;
+}
+
+.share-vocari-store img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.share-vocari-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  padding: 24px 0;
+  font-size: 0.9rem;
+}
+
+.share-vocari-footer a {
+  color: #154a76;
+}
+
+@media (max-width: 760px) {
+  .share-vocari-platform {
+    scroll-margin-top: 202px;
+  }
+}
+
+@media (max-width: 560px) {
+  .share-vocari-platforms {
+    grid-template-columns: 1fr;
+  }
+}
