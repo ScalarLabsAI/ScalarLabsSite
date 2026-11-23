@@ -1,0 +1,40 @@
+.vocari-chatgpt-skill > div {
+  min-width: 0;
+}
+
+.vocari-chatgpt-skill .eyebrow {
+  color: #c4dff6;
+  margin-bottom: 8px;
+}
+
+.vocari-chatgpt-skill h2 {
+  color: #ffffff;
+}
+
+.vocari-chatgpt-skill-action {
+  max-width: 230px;
+  text-align: center;
+}
+
+.vocari-chatgpt-skill-action .btn:disabled {
+  background: #e4ebf1;
+  border-color: #c6d2dc;
+  color: #536577;
+  cursor: not-allowed;
+  font: inherit;
+  font-weight: 800;
+  transform: none;
+}
+
+.vocari-chatgpt-skill-action p {
+  margin: 10px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .vocari-chatgpt-skill-action {
+    max-width: none;
+    text-align: left;
+  }
+}
